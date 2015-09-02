@@ -1,0 +1,9 @@
+Options +FollowSymLinks
+RewriteEngine On
+
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteRule ^(.*)$ index.php?dl=$1 [L]
+
+# Send all blocked request to homepage with 404 Not Found!
+ErrorDocument 404 file_not_found
