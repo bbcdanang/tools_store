@@ -9,11 +9,11 @@ $_POST['password'] = isset($_POST['password']) ? $_POST['password'] : '123456';
 <table border="1">
   <tr>
     <td>Username</td>
-    <td><input type="text" name="username" value="<?=@$_POST['username'];?>"></td>
+    <td><input type="text" name="username" value="<?php echo @$_POST['username'];?>"></td>
   </tr>
   <tr>
     <td>Password</td>
-    <td><input type="text" name="password" value="<?=@$_POST['password'];?>"></td>
+    <td><input type="text" name="password" value="<?php echo @$_POST['password'];?>"></td>
   </tr>
   <tr>
     <td>&nbsp;</td>
@@ -21,7 +21,7 @@ $_POST['password'] = isset($_POST['password']) ? $_POST['password'] : '123456';
   </tr>
 </table>
 </form>
-<?
+<?php
 if(isset($_POST['Submit']))
 {
 	$db->debug=1;
@@ -32,7 +32,7 @@ if(isset($_POST['Submit']))
 		$q = "UPDATE bbc_user SET password='".encode($_POST['password'])."' WHERE username='".$_POST['username']."'";
 	}
 	$db->Execute($q);
-	
+
 	echo '<br />Affected Rows : '.$db->Affected_rows().' rows';
 	echo '<br />'.$db->dbOutput;
 }

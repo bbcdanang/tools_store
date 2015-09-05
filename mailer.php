@@ -12,7 +12,7 @@ if(!isset($_POST['Submit']))
 		</tr>
 		<tr>
 			<td>Module</td>
-			<td><select name="module_id"><?=createOption($db->getAssoc($q), '');?></select></td>
+			<td><select name="module_id"><?php echo createOption($db->getAssoc($q), '');?></select></td>
 		</tr>
 		<tr>
 			<td>mail to</td>

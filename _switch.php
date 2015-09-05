@@ -137,7 +137,7 @@ echo $M_DIR;
 die();
 }else	chdir($M_DIR);
 $sys->stop();
-switch( $Bbc->mod['task'] ) 
+switch( $Bbc->mod['task'] )
 {
 	case 'main' :
 	ob_start();
@@ -145,10 +145,10 @@ switch( $Bbc->mod['task'] )
 		<table>
 		  <tr>
 		    <td style="width:200px;">
-		    	<IFRAME name="navigation" src="<?=site_url($Bbc->mod['circuit'].'.list');?>" frameBorder="0" width="100%" height="100%" scrolling="auto"></IFRAME>
+		    	<IFRAME name="navigation" src="<?php echo site_url($Bbc->mod['circuit'].'.list');?>" frameBorder="0" width="100%" height="100%" scrolling="auto"></IFRAME>
 		    </td>
 		    <td>
-		    	<IFRAME name="tasks" src="<?=site_url($Bbc->mod['circuit'].'.PHP');?>" frameBorder="0" width="100%" height="100%" scrolling="auto"></IFRAME>
+		    	<IFRAME name="tasks" src="<?php echo site_url($Bbc->mod['circuit'].'.PHP');?>" frameBorder="0" width="100%" height="100%" scrolling="auto"></IFRAME>
 		    </td>
 		  </tr>
 		</table>
@@ -167,7 +167,7 @@ switch( $Bbc->mod['task'] )
 			$r_data = array();
 			while (($data = readdir($dir)) !== false)
 			{
-				if(is_file($M_DIR.$data) 
+				if(is_file($M_DIR.$data)
 					&& !in_array($data, $notFile)
 					&& substr(strtolower($data),-4)=='.php')
 				{
@@ -177,11 +177,11 @@ switch( $Bbc->mod['task'] )
 			closedir($dir);
 			asort ($r_data);
 		}
-	
+
 		echo "<ul>";
 		foreach((array)$r_data as $data)
 		{
-			echo "<li><a href=\"".$Bbc->mod['circuit'].".$data\" target=\"tasks\">$data</a></li>"; 
+			echo "<li><a href=\"".$Bbc->mod['circuit'].".$data\" target=\"tasks\">$data</a></li>";
 		}
 		echo "</ul>";
 	$output = ob_get_contents();
@@ -207,8 +207,8 @@ function show_css($data = '')
 body{
 margin: 0px;
 padding: 0px;
-font-family:verdana, arial, sans-serif; 
-font-size: 12px; 
+font-family:verdana, arial, sans-serif;
+font-size: 12px;
 color: #666666
 }
 table{
@@ -248,8 +248,8 @@ text-decoration: none;
 </style>
 </head>
 <body bgcolor="#ffffff">
-	<?=$data;?>
+	<?php echo $data;?>
 </body>
 </html>
-<?
+<?php
 }
